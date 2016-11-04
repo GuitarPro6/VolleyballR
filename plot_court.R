@@ -22,7 +22,7 @@ theme_court = function(base_size = 16) {
     )
 }
 
-width = 50
+width = 60
 height = 94 / 2
 key_height = 19
 inner_key_width = 12

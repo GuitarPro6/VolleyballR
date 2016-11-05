@@ -22,8 +22,8 @@ theme_court = function(base_size = 16) {
     )
 }
 
-width = 60
-height = 94 / 2
+width = 97
+height = 98
 key_height = 19
 inner_key_width = 12
 outer_key_width = 16
@@ -99,7 +99,7 @@ court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 35), xlim = c(-30, 30)) +
+  coord_fixed(ylim = c(0, 35), xlim = c(-49, 49)) +
   theme_court(base_size = 22)
 
 short_three_court = ggplot() +

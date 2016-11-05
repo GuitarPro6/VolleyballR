@@ -16,7 +16,7 @@ source("heatmap_chart.R")
 shinyUI(
   fixedPage(
     theme = "flatly.css",
-    title = "BallR: Interactive NBA Shot Charts with R and Shiny",
+    title = "VolleyBallR: Interactive VolleyBall Shot Charts with R and Shiny",
 
     tags$head(
       tags$link(rel = "apple-touch-icon", href = "basketball.png"),

@@ -99,7 +99,7 @@ court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 35), xlim = c(-25, 25)) +
+  coord_fixed(ylim = c(0, 35), xlim = c(-30, 30)) +
   theme_court(base_size = 22)
 
 short_three_court = ggplot() +

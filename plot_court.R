@@ -24,7 +24,7 @@ theme_court = function(base_size = 16) {
 
 width = 97
 height = 98
-key_height = 19
+key_height = 89
 inner_key_width = 12
 outer_key_width = 16
 backboard_width = 6

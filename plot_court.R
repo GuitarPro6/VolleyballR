@@ -24,7 +24,7 @@ theme_court = function(base_size = 16) {
 
 width = 97
 height = 98
-key_height = 89
+key_height = 19
 inner_key_width = 12
 outer_key_width = 16
 backboard_width = 6
@@ -100,7 +100,7 @@ court = ggplot() +
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 35), xlim = c(-49, 49)) +
-  theme_court(base_size = 22)
+  theme_court(base_size = 40)
 
 short_three_court = ggplot() +
   geom_path(data = short_three_court_points,

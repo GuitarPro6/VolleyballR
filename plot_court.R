@@ -22,19 +22,19 @@ theme_court = function(base_size = 16) {
     )
 }
 
-width = 97
-height = 98
+width = 50
+height = 26
 key_height = 19
 inner_key_width = 12
-outer_key_width = 78
+outer_key_width = 14.75
 backboard_width = 6
 backboard_offset = 4
 neck_length = 0.5
 hoop_radius = 0.75
 hoop_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 23.75
-three_point_side_radius = 39
-three_point_side_height = 89
+three_point_side_radius = 10
+three_point_side_height = 20.25
 
 short_three_radius = 22
 short_three_seasons = c("1994-95", "1995-96", "1996-97")
@@ -99,7 +99,7 @@ court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 100), xlim = c(-49, 49)) +
+  coord_fixed(ylim = c(0, 30), xlim = c(-30, 30)) +
   theme_court(base_size = 22)
 
 short_three_court = ggplot() +

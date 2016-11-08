@@ -24,14 +24,14 @@ theme_court = function(base_size = 16) {
 
 width = 51
 height = 30
-key_height = 19.5
+key_height = 30
 inner_key_width = 0
 outer_key_width = 39
 backboard_width = 0
-backboard_offset = 0
+backboard_offset = 1
 neck_length = .5
 hoop_radius = 0
-hoop_center_y = backboard_offset + neck_length + hoop_radius
+ball_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 0
 three_point_side_radius = 0
 three_point_side_height = 20.25
@@ -67,9 +67,9 @@ foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circ
 
 #hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
 
-#restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
- # filter(y >= hoop_center_y) %>%
- # mutate(desc = "restricted")
+restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
+  filter(y >= hoop_center_y) %>%
+  mutate(desc = "restricted")
 
 #three_point_circle = circle_points(center = c(0, hoop_center_y), radius = three_point_radius) %>% filter(y >= three_point_side_height)
 #short_three_circle = circle_points(center = c(0, hoop_center_y), radius = short_three_radius) %>% filter(y >= hoop_center_y)
@@ -81,13 +81,14 @@ foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circ
   #desc = "short_three_line"
 #)
 
-#court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
+court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
 
 #court_points = rbind(court_without_three, three_point_line)
 #court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
 
 #short_three_court_points = rbind(court_without_three, short_three_line)
 #short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
+
 #This method draws the court, contains the coordinates that put limits on what can be drawn
 court = ggplot() +
   geom_path(data = court_points,
@@ -104,5 +105,5 @@ short_three_court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = "solid"),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 30), xlim = c(-25, 25)) +
+  coord_fixed(ylim = c(10, 30), xlim = c(-25, 25)) +
   theme_court(base_size = 22) 

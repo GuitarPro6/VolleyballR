@@ -61,9 +61,9 @@ line_points = data.frame(
   x = c(-27,0,0,27), y = 17.5, desc = "dottedLine"
 )
 
-#foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
-#foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
-#foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
+foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
+foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
+foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
 
 #hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
 

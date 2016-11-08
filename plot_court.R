@@ -23,7 +23,7 @@ theme_court = function(base_size = 16) {
 }
 
 width = 51
-height = 25
+height = 30
 key_height = 19.5
 inner_key_width = 0
 outer_key_width = 39
@@ -61,11 +61,11 @@ court_points = rbind(court_points , data.frame(
   x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
 ))
 
-foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
+#foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
 #foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
-foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
+#foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
 
-hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
+#hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
 
 restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
   filter(y >= hoop_center_y) %>%
@@ -74,9 +74,9 @@ restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
 #three_point_circle = circle_points(center = c(0, hoop_center_y), radius = three_point_radius) %>% filter(y >= three_point_side_height)
 #short_three_circle = circle_points(center = c(0, hoop_center_y), radius = short_three_radius) %>% filter(y >= hoop_center_y)
 
-three_point_line = data.frame(
-  x = c(three_point_side_radius, three_point_side_radius, three_point_circle$x, -three_point_side_radius, -three_point_side_radius),
-  y = c(0, three_point_side_height, three_point_circle$y, three_point_side_height, 0),
+middle_point_line = data.frame(
+  x = c(51,-51),
+  y = c(6.5),
   desc = "three_point_line"
 )
 

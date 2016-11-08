@@ -84,7 +84,7 @@ line_points = data.frame(
 court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
 
 court_points = rbind(court_without_three, three_point_line)
-#court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
+court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
 
 short_three_court_points = rbind(court_without_three, short_three_line)
 short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))

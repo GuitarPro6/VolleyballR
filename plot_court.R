@@ -29,14 +29,14 @@ inner_key_width = 0
 outer_key_width = 39
 backboard_width = 0
 backboard_offset = 4
-neck_length = 0.5
-hoop_radius = 0.75
+neck_length = 0
+hoop_radius = 0
 hoop_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 23.75
 three_point_side_radius = 10
 three_point_side_height = 20.25
 
-short_three_radius = 22
+short_three_radius = 0
 short_three_seasons = c("1994-95", "1995-96", "1996-97")
 
 court_points = data.frame(
@@ -101,7 +101,7 @@ court = ggplot() +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) +  geom_path(data = court_points,
-            aes(x = x, y = 6.5, group = desc, linetype = dash),
+            aes(x = x, y = 17.5, group = desc, linetype = 2),
             color = "#999999")
 
 short_three_court = ggplot() +

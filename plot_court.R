@@ -57,9 +57,9 @@ court_points = rbind(court_points , data.frame(
 #))
 
 #This will draw the dashed line
-court_points = data.frame(court_points, data.frame(
+line_points = data.frame(
   x = c(-27,0,0,27), y = 17.5, desc = "dottedLine")
-)
+
 
 foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
 foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
@@ -92,7 +92,7 @@ court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, 
 #This method draws the court, contains the coordinates that put limits on what can be drawn
 court = ggplot() + geom_path(data = court_points,
             aes(x = x, y = y, group = desc, linetype = "solid"),
-            color = "#999999") + scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + 
+            color = "#999999") + geom_path(data = line_points,aes(x = x, y = y,linetype = "dotdash")) + scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + 
              coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
               theme_court(base_size = 22) 
 

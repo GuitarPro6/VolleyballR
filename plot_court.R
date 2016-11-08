@@ -104,7 +104,7 @@ court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +  geom_path(data = line_points,
             aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
-            color = "#999999")
+            color = "#999999") + 
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) 

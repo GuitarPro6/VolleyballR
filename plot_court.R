@@ -47,7 +47,7 @@ court_points = data.frame(
 
 court_points = rbind(court_points , data.frame(
   x = c(outer_key_width / 2, outer_key_width / 2, -outer_key_width / 2, -outer_key_width / 2),
-  y = c(0, key_height, key_height, 0),
+  y = c(4.5, key_height, key_height, 4.5),
   desc = "outer_key"
 ))
 

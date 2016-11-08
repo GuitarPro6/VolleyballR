@@ -46,8 +46,8 @@ court_points = data.frame(
 )
 
 court_points = rbind(court_points , data.frame(
-  x = c(outer_key_width / 2, outer_key_width / 2, -outer_key_width / 2, -outer_key_width / 2),
-  y = c(4.5, key_height, key_height, 4.5),
+  x = c(outer_key_width / 2, outer_key_width / 2, -outer_key_width / 2, -outer_key_width / 2,outer_key_width / 2),
+  y = c(4.5, key_height, key_height, 4.5, 4.5),
   desc = "outer_key"
 ))
 
@@ -97,7 +97,7 @@ court = ggplot() +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) + geom_path(data = line_points,
-            aes(x = x, y = y, group = "dottedLine", linetype = "solid"),
+            aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
             color = "#999999")
 
 short_three_court = ggplot() +

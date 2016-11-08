@@ -101,7 +101,7 @@ short_three_court_points = mutate(short_three_court_points , dash = (desc == "fo
 #This method draws the court, contains the coordinates that put limits on what can be drawn
 court = ggplot() +
   geom_path(data = court_points,
-            aes(x = x, y = y, group = desc, linetype = "solid"),
+            aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") + +  geom_path(data = line_points,
             aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
             color = "#999999")

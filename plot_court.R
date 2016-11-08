@@ -32,8 +32,8 @@ backboard_offset = 4
 neck_length = .5
 hoop_radius = .75
 hoop_center_y = backboard_offset + neck_length + hoop_radius
-three_point_radius = 23.75
-three_point_side_radius = 10
+three_point_radius = 0
+three_point_side_radius = 0
 three_point_side_height = 20.25
 
 short_three_radius = 22

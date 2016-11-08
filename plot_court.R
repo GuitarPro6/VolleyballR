@@ -22,12 +22,12 @@ theme_court = function(base_size = 16) {
     )
 }
 
-width = 50
-height = 26
-key_height = 19
+width = 51
+height = 25
+key_height = 19.5
 inner_key_width = 12
-outer_key_width = 14.75
-backboard_width = 6
+outer_key_width = 39
+backboard_width = 0
 backboard_offset = 4
 neck_length = 0.5
 hoop_radius = 0.75
@@ -99,7 +99,7 @@ court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 30), xlim = c(-30, 30)) +
+  coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22)
 
 short_three_court = ggplot() +
@@ -107,5 +107,5 @@ short_three_court = ggplot() +
             aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  coord_fixed(ylim = c(0, 35), xlim = c(-25, 25)) +
+  coord_fixed(ylim = c(0, 30), xlim = c(-25, 25)) +
   theme_court(base_size = 22)

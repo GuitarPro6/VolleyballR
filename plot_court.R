@@ -94,7 +94,7 @@ court = ggplot() + geom_path(data = court_points,
             aes(x = x, y = y, group = desc, linetype = "solid"),
             color = "#999999") + scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + 
              coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
-              theme_court(base_size = 22) + geom_path(data = line_points,aes(x = x, y = y,linetype = "solid"))
+              theme_court(base_size = 22) + geom_path(data = line_points,aes(x = x, y = y,linetype = "solid"), color = "#999999")
 
 #dotted = ggplot() +  geom_path(data = line_points,aes(x = x, y = y,linetype = "dotdash")) +  scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
  #             theme_court(base_size = 22) 

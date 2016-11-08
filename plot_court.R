@@ -29,14 +29,14 @@ inner_key_width = 0
 outer_key_width = 39
 backboard_width = 0
 backboard_offset = 4
-neck_length = 4.75
-hoop_radius = 1.25
+neck_length = .5
+hoop_radius = .75
 hoop_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 23.75
 three_point_side_radius = 10
 three_point_side_height = 20.25
 
-short_three_radius = .75
+short_three_radius = 22
 short_three_seasons = c("1994-95", "1995-96", "1996-97")
 
 court_points = data.frame(

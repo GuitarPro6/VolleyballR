@@ -29,8 +29,8 @@ inner_key_width = 0
 outer_key_width = 39
 backboard_width = 0
 backboard_offset = 4
-neck_length = 0.4
-hoop_radius = 0.8
+neck_length = 4.75
+hoop_radius = 1.25
 hoop_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 23.75
 three_point_side_radius = 10
@@ -106,7 +106,7 @@ court = ggplot() +
 
 short_three_court = ggplot() +
   geom_path(data = short_three_court_points,
-            aes(x = x, y = y, group = desc, linetype = dashed),
+            aes(x = x, y = y, group = desc, linetype = dash),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-25, 25)) +

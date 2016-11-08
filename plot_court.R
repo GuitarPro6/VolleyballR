@@ -102,12 +102,12 @@ short_three_court_points = mutate(short_three_court_points , dash = (desc == "fo
 court = ggplot() +
   geom_path(data = court_points,
             aes(x = x, y = y, group = desc, linetype = dash),
-            color = "#999999") +  geom_path(data = line_points,
-            aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
             color = "#999999") + 
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
-  theme_court(base_size = 22) 
+  theme_court(base_size = 22) + geom_path(data = line_points,
+            aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
+            color = "#999999")
 
 short_three_court = ggplot() +
   geom_path(data = short_three_court_points,

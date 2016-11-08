@@ -61,6 +61,10 @@ court_points = rbind(court_points , data.frame(
   x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
 ))
 
+court_points = rbind(court_points , data.frame(
+  x = c(-27, 27), y = 17.5, desc = "dottedLine"
+))
+
 #foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
 #foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
 #foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
@@ -100,7 +104,9 @@ court = ggplot() +
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
-  theme_court(base_size = 22) 
+  theme_court(base_size = 22) +  geom_path(data = court_points,
+            aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
+            color = "#999999")
 
 short_three_court = ggplot() +
   geom_path(data = short_three_court_points,
@@ -108,6 +114,4 @@ short_three_court = ggplot() +
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-25, 25)) +
-  theme_court(base_size = 22) +  geom_path(data = court_points,
-            aes(x = x, y = 17.5, group = desc, linetype = "dotdash"),
-            color = "#999999")
+  theme_court(base_size = 22) 

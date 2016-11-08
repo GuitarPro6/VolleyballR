@@ -51,11 +51,6 @@ court_points = rbind(court_points , data.frame(
   desc = "outer_key"
 ))
 
-court_points = rbind(court_points , data.frame(
-  x = c(-backboard_width / 2, backboard_width / 2),
-  y = c(backboard_offset, backboard_offset),
-  desc = "backboard"
-))
 
 court_points = rbind(court_points , data.frame(
   x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
@@ -72,9 +67,9 @@ line_points = data.frame(
 
 #hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
 
-restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
-  filter(y >= hoop_center_y) %>%
-  mutate(desc = "restricted")
+#restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
+ # filter(y >= hoop_center_y) %>%
+ # mutate(desc = "restricted")
 
 #three_point_circle = circle_points(center = c(0, hoop_center_y), radius = three_point_radius) %>% filter(y >= three_point_side_height)
 #short_three_circle = circle_points(center = c(0, hoop_center_y), radius = short_three_radius) %>% filter(y >= hoop_center_y)
@@ -85,11 +80,11 @@ middle_point_line = data.frame(
   desc = "three_point_line"
 )
 
-short_three_line = data.frame(
-  x = c(three_point_side_radius, three_point_side_radius, short_three_circle$x, -three_point_side_radius, -three_point_side_radius),
-  y = c(0, hoop_center_y, short_three_circle$y, hoop_center_y, 0),
-  desc = "short_three_line"
-)
+#short_three_line = data.frame(
+ # x = c(three_point_side_radius, three_point_side_radius, short_three_circle$x, -three_point_side_radius, -three_point_side_radius),
+  #y = c(0, hoop_center_y, short_three_circle$y, hoop_center_y, 0),
+  #desc = "short_three_line"
+#)
 
 court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
 
@@ -106,7 +101,7 @@ court = ggplot() +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) + geom_path(data = line_points,
-            aes(x = x, y = y, group = "dottedLine", linetype = "dash"),
+            aes(x = x, y = y, group = "dottedLine", linetype = dash),
             color = "#999999")
 
 short_three_court = ggplot() +

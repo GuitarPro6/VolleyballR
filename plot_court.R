@@ -101,7 +101,7 @@ court = ggplot() +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) +  geom_path(data = court_points,
-            aes(x = x, y = 17.5, group = desc, linetype = 2),
+            aes(x = x, y = 17.5, group = desc, linetype = dashed),
             color = "#999999")
 
 short_three_court = ggplot() +

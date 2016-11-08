@@ -58,7 +58,7 @@ court_points = rbind(court_points , data.frame(
 
 #This will draw the dashed line
 line_points = data.frame(
-  x = c(-27,0,0,27), y = c(17.5,17,5,17.5,17.5), desc = "dottedLine"
+  x = c(-27,0,0,27), y = c(17.5,17.5,17.5,17.5), desc = "dottedLine"
 )
 
 foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)

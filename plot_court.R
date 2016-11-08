@@ -52,9 +52,9 @@ court_points = rbind(court_points , data.frame(
 ))
 
 
-court_points = rbind(court_points , data.frame(
-  x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
-))
+#court_points = rbind(court_points , data.frame(
+ # x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
+#))
 
 #This will draw the dashed line
 line_points = data.frame(
@@ -74,11 +74,6 @@ line_points = data.frame(
 #three_point_circle = circle_points(center = c(0, hoop_center_y), radius = three_point_radius) %>% filter(y >= three_point_side_height)
 #short_three_circle = circle_points(center = c(0, hoop_center_y), radius = short_three_radius) %>% filter(y >= hoop_center_y)
 
-middle_point_line = data.frame(
-  x = c(51,-51),
-  y = c(6.5),
-  desc = "three_point_line"
-)
 
 #short_three_line = data.frame(
  # x = c(three_point_side_radius, three_point_side_radius, short_three_circle$x, -three_point_side_radius, -three_point_side_radius),
@@ -89,10 +84,10 @@ middle_point_line = data.frame(
 court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
 
 court_points = rbind(court_without_three, three_point_line)
-court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
+#court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
 
 short_three_court_points = rbind(court_without_three, short_three_line)
-short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
+#short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
 #This method draws the court, contains the coordinates that put limits on what can be drawn
 court = ggplot() +
   geom_path(data = court_points,

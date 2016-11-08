@@ -97,12 +97,12 @@ court = ggplot() +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
   theme_court(base_size = 22) + geom_path(data = line_points,
-            aes(x = x, y = y, group = "dottedLine", linetype = "dotdash"),
+            aes(x = x, y = y, group = "dottedLine", linetype = "solid"),
             color = "#999999")
 
 short_three_court = ggplot() +
   geom_path(data = short_three_court_points,
-            aes(x = x, y = y, group = desc, linetype = "solid"),
+            aes(x = x, y = y, group = desc, linetype = "dotdash"),
             color = "#999999") +
   scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
   coord_fixed(ylim = c(10, 30), xlim = c(-25, 25)) +

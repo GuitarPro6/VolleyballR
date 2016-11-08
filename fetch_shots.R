@@ -1,6 +1,4 @@
-source <- read.xls("Sample.Data.xlsx")
 
-attach(source)
 
 fetch_shots_by_player_id_and_season = function(player_id, season) {
   req(player_id, season)

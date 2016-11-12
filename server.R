@@ -160,8 +160,8 @@ shinyServer(function(input, output, session) {
  #   tags$div(
   #    "Data via stats.nba.com",
    #   tags$br(),
-    #  "toddwschneider.com/ballr"
-    )
+    #  "toddwschneider.com/ballr")
+    
   })
 
   output$download_link = renderUI({

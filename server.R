@@ -157,10 +157,10 @@ shinyServer(function(input, output, session) {
   output$shot_chart_footer = renderUI({
     req(shot_chart())
 
-    tags$div(
-      "Data via stats.nba.com",
-      tags$br(),
-      "toddwschneider.com/ballr"
+ #   tags$div(
+  #    "Data via stats.nba.com",
+   #   tags$br(),
+    #  "toddwschneider.com/ballr"
     )
   })
 

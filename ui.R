@@ -13,6 +13,8 @@ source("hex_chart.R")
 source("scatter_chart.R")
 source("heatmap_chart.R")
 
+
+#This is the class that actually runs the app and makes it look nice. The shinyUI makes it look a specific way
 shinyUI(
   fixedPage(
     theme = "flatly.css",
@@ -31,13 +33,15 @@ shinyUI(
       includeScript("www/google-analytics.js")
     ),
 
+    
+    #This HTML code sets up the top left and right hand links that are available. 
     HTML('
       <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
           <div>
             <ul class="nav navbar-nav col-xs-12">
               <li class="col-xs-8 col-md-9">
-                <a href="#">BallR<span class="hidden-xs">: Interactive NBA Shot Charts</span></a>
+                <a href="#">VolleyBallR<span class="hidden-xs">: Interactive Data Charts</span></a>
               </li>
               <li class="col-xs-4 col-md-3 github-link">
                 <a href="https://github.com/toddwschneider/ballr" target="_blank">

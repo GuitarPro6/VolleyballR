@@ -81,7 +81,7 @@ restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
   #desc = "short_three_line"
 #)
 
-court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, hoop, restricted)
+court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, restricted)
 
 #court_points = rbind(court_without_three, three_point_line)
 court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))

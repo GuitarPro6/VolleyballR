@@ -35,7 +35,7 @@ shinyServer(function(input, output, session) {
                         selected = selected_value)
     })
   })
-
+#Pulls all the shot data at once from the data set
   shots = reactive({
     req(current_player(), current_season())
     req(current_season() %in% current_player_seasons())
@@ -48,6 +48,8 @@ shinyServer(function(input, output, session) {
       fetch_shots_by_player_id_and_season(current_player()$person_id, current_season())
     }
   })
+  
+  
 
   filtered_shots = reactive({
     req(input$shot_result_filter, shots()$player)

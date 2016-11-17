@@ -87,7 +87,7 @@ court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, 
 court_points = mutate(court_points , dash = (desc == "foul_circle_bottom"))
 
 #short_three_court_points = rbind(court_without_three, short_three_line)
-short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
+#short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
 
 #This method draws the court, contains the coordinates that put limits on what can be drawn
 court = ggplot() + geom_path(data = court_points,

@@ -35,6 +35,7 @@ ball_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 0
 three_point_side_radius = 0
 three_point_side_height = 20.25
+hoop_center_y = 0
 
 short_three_radius = 22
 short_three_seasons = c("1994-95", "1995-96", "1996-97")

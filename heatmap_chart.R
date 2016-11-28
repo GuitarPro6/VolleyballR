@@ -13,7 +13,7 @@ generate_heatmap_chart = function(shots, use_short_three = FALSE) {
       geom = "raster", contour = FALSE, interpolate = TRUE, n = 200
     ) +
     geom_path(data = court_points,
-              aes(x = x, y = y, group = desc, linetype = dash),
+              aes(x = x, y = y, group = desc, linetype = "solid"),
               color = "#999999") +
     scale_fill_gradientn(colors = inferno_colors, guide = FALSE ) +
     scale_colour_gradientn("Shot frequency    ",

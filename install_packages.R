@@ -4,7 +4,8 @@ required_packages = c(
   "hexbin",
   "dplyr",
   "httr",
-  "jsonlite"
+  "jsonlite",
+  "readr"
 )
 
 packages_to_install = required_packages[!(required_packages %in% installed.packages()[, 1])]
@@ -12,3 +13,5 @@ packages_to_install = required_packages[!(required_packages %in% installed.packa
 if (length(packages_to_install) > 0) {
   install.packages(packages_to_install, repos = "https://cran.rstudio.com")
 }
+remove.packages('readr', c("/Users/Jon/Library/R/3.3/library", "/Library/Frameworks/R.framework/Versions/3.3/Resources/library"))
+.libPaths()

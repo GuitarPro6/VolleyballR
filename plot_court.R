@@ -1,7 +1,7 @@
 circle_points = function(center = c(0, 0), radius = 1, npoints = 360) {
   angles = seq(0, 2 * pi, length.out = npoints)
   return(data.frame(x = center[1] + radius * cos(angles),
-                    y = center[2] + radius * sin(angles)))
+                  y = center[2] + radius * sin(angles)))
 }
 
 theme_court = function(base_size = 16) {
@@ -22,64 +22,65 @@ theme_court = function(base_size = 16) {
     )
 }
 
-width = 51
-height = 30
-key_height = 30
+width = 53.5
+height = 39
+key_height = 39
 inner_key_width = 0
 outer_key_width = 39
-backboard_width = 0
-backboard_offset = 1
-neck_length = .5
-hoop_radius = 0
-ball_center_y = backboard_offset + neck_length + hoop_radius
 three_point_radius = 0
 three_point_side_radius = 0
-three_point_side_height = 20.25
-hoop_center_y = 0
 
-short_three_radius = 22
-short_three_seasons = c("1994-95", "1995-96", "1996-97")
+
+
+
 
 court_points = data.frame(
-  x = c(width / 2, width / 2, -width / 2, -width / 2, width / 2),
-  y = c(height, 0, 0, height, height),
+  x = c(-1, -1, -51, -51, -1),
+  y = c(-51, -100, -100, -51, -51),
   desc = "perimeter"
 )
 
 court_points = rbind(court_points , data.frame(
-  x = c(outer_key_width / 2, outer_key_width / 2, -outer_key_width / 2, -outer_key_width / 2,outer_key_width / 2),
-  y = c(4.5, key_height, key_height, 4.5, 4.5),
-  desc = "outer_key"
+  x = c(-45.5, -45.5, -6.5, -6.5,-45.5),
+  y = c(-90, -51, -51, -90, -90),
+  desc = "inner_key"
 ))
 
 
-#court_points = rbind(court_points , data.frame(
- # x = c(0, 0), y = c(backboard_offset, backboard_offset + neck_length), desc = "neck"
-#))
-
 #This will draw the dashed line
 line_points = data.frame(
-  x = c(-27,0,0,27), y = 17.5, desc = "dottedLine")
+  x = c(-6.5, -45.5, -45.5, -6.5), y = -64, desc = "dottedLine")
 
+
+center_points_horizontal = data.frame(
+  x = c(-26.5,-25.5),
+  y = c(-77,-77)
+  
+)
+
+center_points_vertical = data.frame(
+  x = c(-26,-26),
+  y = c(-76.5, -77.5)
+)
 
 #foul_circle = circle_points(center = c(0, key_height), radius = inner_key_width / 2)
 #foul_circle_top = filter(foul_circle, y > key_height) %>% mutate(desc = "foul_circle_top")
 #foul_circle_bottom = filter(foul_circle, y  == 6.5) %>% mutate(desc = "foul_circle_bottom")
 
-#hoop = circle_points(center = c(0, hoop_center_y), radius = hoop_radius) %>% mutate(desc = "hoop")
+#hoop = circle_points(center = c(-19.5, -77), radius = 2, npoints = 360) 
 
 #restricted = circle_points(center = c(0, hoop_center_y), radius = 4) %>%
- # filter(y >= hoop_center_y) %>%
-  #mutate(desc = "restricted")
+# filter(y >= hoop_center_y) %>%
+#mutate(desc = "restricted")
 
 #three_point_circle = circle_points(center = c(0, hoop_center_y), radius = three_point_radius) %>% filter(y >= three_point_side_height)
 #short_three_circle = circle_points(center = c(0, hoop_center_y), radius = short_three_radius) %>% filter(y >= hoop_center_y)
 
 
 #short_three_line = data.frame(
- # x = c(three_point_side_radius, three_point_side_radius, short_three_circle$x, -three_point_side_radius, -three_point_side_radius),
-  #y = c(0, hoop_center_y, short_three_circle$y, hoop_center_y, 0),
-  #desc = "short_three_line"
+# x = c(three_point_side_radius, three_point_side_radius, short_three_circle$x, -three_point_side_radius, -three_point_side_radius),
+#y = c(0, hoop_center_y, short_three_circle$y, hoop_center_y, 0),
+#desc = "short_three_line"
 #)
 
 #court_without_three = rbind(court_points , foul_circle_top, foul_circle_bottom, restricted)
@@ -90,20 +91,15 @@ line_points = data.frame(
 #short_three_court_points = rbind(court_without_three, short_three_line)
 #short_three_court_points = mutate(short_three_court_points , dash = (desc == "foul_circle_bottom"))
 
+
 #This method draws the court, contains the coordinates that put limits on what can be drawn
+
 court = ggplot() + geom_path(data = court_points,
-            aes(x = x, y = y, group = desc, linetype = "solid"),
-            color = "#999999") + scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + 
-             coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
-              theme_court(base_size = 22) + geom_path(data = line_points,aes(x = x, y = y,linetype = "solid"), color = "#999999")
-
-#dotted = ggplot() +  geom_path(data = line_points,aes(x = x, y = y,linetype = "dotdash")) +  scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) + coord_fixed(ylim = c(0, 30), xlim = c(-27, 27)) +
- #             theme_court(base_size = 22) 
-
-#short_three_court = ggplot() +
- # geom_path(data = short_three_court_points,
-  #          aes(x = x, y = y, group = desc, linetype = "solid"),
- #  3         color = "#999999") +
-  #scale_linetype_manual(values = c("solid", "longdash"), guide = FALSE) +
-  #coord_fixed(ylim = c(10, 30), xlim = c(-25, 25)) +
-  #theme_court(base_size = 22) 
+                             aes(x = x, y = y, group = desc), 
+                             size = 4,
+                             color = "#999999") + 
+  coord_fixed(ylim = c(-50, -100), xlim = c(-1, -50), ratio = 1) +
+  theme_court(base_size = 22) + 
+geom_path(data = line_points,aes(x = x, y = y), linetype = "solid", size = 2, color = "#999999") + 
+geom_path(data = center_points_horizontal, aes(x = x, y = y), linetype = "solid", color = "#999999", size = 1) +
+geom_path(data = center_points_vertical, aes(x = x, y = y), linetype = "solid", color = "#999999", size = 1)

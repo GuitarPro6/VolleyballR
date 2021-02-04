@@ -176,12 +176,12 @@ default_position = as.character(default_player$person_pos)
 default_team_id = as.numeric(default_player$team_id)
 default_team_name = as.character(default_player$team_name)
 file_vec <- list.files()
-files_list <- grep("1[0-9]", file_vec, value = TRUE)
-y_match <- gregexpr('1[0-9]',files_list)
+files_list <- grep("[0-9]{4}", file_vec, value = TRUE)
+y_match <- gregexpr('[0-9]{4}',files_list)
 
 years <- unique(regmatches(files_list,y_match))
 
-year <- sort(as.numeric(years))
+year <- sort(as.numeric(years)-2000)
 default_seasons = year
 default_season = 18
 
